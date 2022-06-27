@@ -1,13 +1,14 @@
 
 import random
+import sys
 
 destinations = ['Florida', 'United Kingdom', 'New York City', 'France']
 
 restaurants = ['Broadway Pizza', 'Ocean Prime', 'ASPIC', 'Pizza by the Sea']
 
-transportations = ['Rental car', 'Train', 'Uber', 'Biking',]
+transportations = ['rental car', 'train', 'uber', 'biking',]
 
-entertainments = ['Golfing at TPC', 'Disneyworld', 'Tour a museum', 'Visit central park']
+entertainments = ['golfing at TPC', 'Disneyworld', 'touring a museum', 'visiting central park']
 
 result = ['', '', '', '']
 destination =''
@@ -43,6 +44,7 @@ def choose_random_restaurant():
         if answer == 'yes' or answer == 'Yes' or answer == 'y':
             print(f'Great choice! Now lets move on!')
         elif answer == 'no' or answer == 'No' or answer == 'n':
+            restaurant = random.choice(restaurants)
             print(f'Sorry you were not pleased with that option, let us try a different option. How does {restaurant} sound?')
     return restaurant 
             
@@ -59,6 +61,7 @@ def choose_random_transportation():
         if answer == 'yes' or answer == 'Yes' or answer == 'y':
             print('Great choice! Now lets move on!')
         elif answer == 'no' or answer == 'No' or answer == 'n':
+            transportation = random.choice(transportations)
             print(f'Sorry you were not pleased with that option, let us try a different option. How does {transportation} sound?')
     return transportation 
             
@@ -75,7 +78,20 @@ def choose_random_entertainment():
             print(f'Great choice! Now lets move on!')
         elif answer == 'no' or answer == 'No' or answer == 'n':
             print(f'Sorry you were not pleased with that option, let us try a different option. How does {entertainment} sound?')
+            entertainment = random.choice(entertainments)
     return entertainment
+
+def finalize_trip():
+    answer = None
+    print('Would you like to finalize your trip?')
+    while answer != 'yes':
+        answer = input('yes or no')
+        if answer == 'yes' or answer == 'Yes' or answer == 'y':
+            print(f'Prepare for the time of your life as you visit {destination} while traveling by {transportation}. Enjoying a nice dinner at {restaurant} and having a blast while {entertainment}')
+        elif answer == 'no' or answer == 'No' or answer == 'n':
+            print('Sorry to hear that. Let us try again!')
+        sys.exit()
+
             
             
     
@@ -105,5 +121,4 @@ print(f'Transportation: {transportation}')
 
 print(f'Entertainment: {entertainment}')
 
-print(f'Prepare for the time of your life as you visit {destination} while traveling by {transportation}. Enjoying a nice dinner at {restaurant} and having a blast while {entertainment}')
-
+finalize_trip()
